@@ -1,30 +1,30 @@
 package fundamental
 
 fun main() {
-    // declare String
-    val name: String = "Kotlin"
+//    declare String
+    val name = "Kotlin"
     val greetings = "Hello, $name"
     println(greetings)
 
 //    String literals
     val rawString = """
-        Hello world!
-        i'm using Kotlin
-        and i'am verry excited!
+        hello kotlin!
+        i'am using kotlin
+        and very happy!
     """.trimIndent()
-    val escaptedString = "Hello \nworld!"
     println(rawString)
+    val escaptedString = "Hello \nfkotlin"
     println(escaptedString)
 
 //    String templating
-
     val x = 5
     val y = 10
-    val result = "Sum of $x + $y is ${x + y}"
+    val result = "Sum $x and $y is ${x + y}"
     println(result)
 
-//    String formating
+//    String formatting
     val version = 2
-    val formatedString = String.format("Hello Kotlin! currently use version %d", version)
-    println(formatedString)
+    val programming = "Kotlin"
+    val formattedString = String.format("Hello %s, currently using version %d", programming, version)
+    println(formattedString)
 }
