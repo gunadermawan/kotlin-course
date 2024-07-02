@@ -6,10 +6,8 @@ fun main() {
 //    noinline fun
     executeTask({ println("task 1") }, { println("task 2 noinline") })
 //    non local return
-
     nonLocalReturn { true }
     nonLocalReturn { false }
-
 //    inline properties
     println(square(5))
 }
