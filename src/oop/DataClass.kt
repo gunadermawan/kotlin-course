@@ -20,8 +20,23 @@ fun main() {
 //    destructuring declarations
     val (name, age) = user1
     println("Name: $name, Age: $age")
+
+    val persons = Persons("Rizal",23)
+    persons.address  = "jakarta barat"
+    persons.greet()
+    println(persons)
 }
 
 
 // declare data class
 data class User(val name: String, val age: Int)
+
+
+// modification data class
+
+data class Persons(val name: String, val age: Int) {
+    var address = ""
+    fun greet() {
+        println("Hello, my name is $name")
+    }
+}
