@@ -9,7 +9,6 @@ fun main() {
             println("button clicked")
         }
     }
-
     btnClick.onClick()
 }
 
