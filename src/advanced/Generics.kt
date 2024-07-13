@@ -6,6 +6,8 @@ class Box<T>(var content: T) {
     }
 }
 
+//func generics
+
 fun <T> printContent(content: T) {
     println(content)
 }
@@ -16,40 +18,41 @@ fun <T : Comparable<T>> findMax(a: T, b: T): T {
     return if (a > b) a else b
 }
 
-//covariant
-
-interface Produce<out T> {
+// Variance covariant
+interface Producer<out T> {
     fun produce(): T
 }
 
-fun demo(producer: Produce<String>) {
-    val obj: Produce<Any> = producer
+fun demo(producer: Producer<String>) {
+    val obj: Producer<Any> = producer
 }
 
-fun demoConv(consumer: Consumer<Number>) {
-    val obj: Consumer<Double> = consumer
-}
+// Contravariant
 
-//contravariant
 
 interface Consumer<in T> {
     fun consume(item: T)
 }
 
-//Invariant
-class Container<T>(var item: T)
+fun demoCons(consumer: Consumer<Number>) {
+    val obj: Consumer<Double> = consumer
+}
+// invariant
 
-fun demoInv(container:Container<Number>){
-    val obj:Container<Any> = container
+class  Container<T> (var item : T)
+
+fun demoCont(container: Container<Number>){
+    val obj: Container<Number> = container
 }
 
 fun main() {
     val intBox = Box(123)
     intBox.displayContent()
-    val stringBox = Box("String Box")
+    val stringBox = Box("Enigma")
     stringBox.displayContent()
+    printContent("Hello kotlin")
     printContent(123)
-    println("hello world!")
-    println(findMax(3, 5))
-    println(findMax("Mango", "Apple"))
+
+    println(findMax(1, 4))
+    println(findMax("Apple", "Mango"))
 }
