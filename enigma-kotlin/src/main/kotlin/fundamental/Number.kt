@@ -1,24 +1,30 @@
 package fundamental
 
 fun main() {
-    // int
-    var number = 1
+//    bilangan bulat
+    val intNumber: Int = 123
+    val longNumber: Long = 123L
+    val shortNumber: Short = 3200
+    val byteNumber: Byte = 123
 
-    // Float
-    val phi = 3.14
+    // bilangan desimal
+    val floatNumber: Float = 3.14f
+    val doubleNumber: Double = 3.141292
 
-    // convert
-    number.toLong()
-    phi.toFloat()
+    // operasi bilangan
+    val sum: Int = intNumber + 10
+    val product: Double = doubleNumber * 3
 
-//    aritmatika
-    number += 10
-    number %= 2
-    number -= 1
+    // konversi
+    val convertedNumber: Double = intNumber.toDouble()
 
-    val billion = 1_000_000
+    println("Int: $intNumber")
+    println("Long: $longNumber")
+    println("short: $shortNumber")
+    println("byte: $byteNumber")
 
-    println(billion)
-    println("data type is ${billion::class.simpleName}")
+    println("Sum (Int + 10): $sum")
+
+    println("Converted (Int to Double): $convertedNumber")
 
 }
