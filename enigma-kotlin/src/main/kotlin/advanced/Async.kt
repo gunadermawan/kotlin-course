@@ -1,30 +1,24 @@
 package org.example.advanced
 
-import fundamental.printMessage
-import kotlinx.coroutines.*
+import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 
 fun main() = runBlocking {
     println("Start program: ${Thread.currentThread().name}")
 
-    // Meluncurkan coroutine secara async
-    val deferred1 = async { fetchDataFromNetwork(1) }
-    val deferred2 = async { fetchDataFromNetwork(2) }
-    val deferred3 = async { fetchDataFromNetwork(3) }
+    // meluncurkan coroutine
+    val deffered1 = async { (fetchDataFromNetwork(1)) }
+    val deffered2 = async { (fetchDataFromNetwork(2)) }
+    val deffered3 = async { (fetchDataFromNetwork(3)) }
 
-    // Menunggu hasil secara bersamaan
-    val results = listOf(deferred1, deferred2, deferred3).map { it.await() }
-
-    // Menampilkan hasil
-    results.forEach { result -> println(result) }
-
+    val results = listOf(deffered3, deffered2, deffered1)
+    results.forEach { results -> println(results) }
     println("End program: ${Thread.currentThread().name}")
 }
 
-// Simulasi fungsi network call yang membutuhkan waktu
 suspend fun fetchDataFromNetwork(id: Int): String {
-    printMessage("Fetching data for ID $id on ${Thread.currentThread().name}")
-    delay(1000L) // Simulasi delay selama 1 detik
+    println("Fetching data for ID $id on ${Thread.currentThread().name}")
+    delay(1000L)
     return "Data for ID $id"
 }
-
-
